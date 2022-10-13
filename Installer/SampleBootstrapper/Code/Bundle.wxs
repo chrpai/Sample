@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+  <Bundle Name="Sample" Version="1.0.0.0" Manufacturer="Sample" UpgradeCode="9d402d18-3079-42bc-b4ae-dc22d4305970">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense">
+      <bal:WixStandardBootstrapperApplication LicenseFile="Resources\EULA.rtf" LogoFile="Resources\Icon.png" />
+    </BootstrapperApplicationRef>
+    <Chain>
+      <MsiPackage Id="Sample" SourceFile="$(var.SampleSetup.TargetPath)" />
+    </Chain>
+  </Bundle>
+</Wix>

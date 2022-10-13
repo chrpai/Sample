@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define ComponentRules="OneToOne"?>
+  <!-- SourceDir instructs IsWiX the location of the directory that contains files for this merge module -->
+  <?define SourceDir="..\Deploy"?>
+  <Module Id="SampleMM" Language="1033" Version="1.0.0.0">
+    <Package Id="a11ffc31-8e8f-4446-b6ea-d351d49ea989" Manufacturer="SampleMM" InstallerVersion="200" />
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="DesktopFolder" />
+      <Directory Id="MergeRedirectFolder">
+        <Component Id="owc6ABCE39088313A1F73B10CBF69535177" Guid="c9515869-6b5f-33cc-ee75-908658c05da5">
+          <File Id="owf6ABCE39088313A1F73B10CBF69535177" Source="$(var.SourceDir)\readme.txt" KeyPath="yes">
+            <Shortcut Id="sc01EEECE8AF728301C0D219C04CB93507" Name="readme" Directory="DesktopFolder" />
+          </File>
+        </Component>
+      </Directory>
+    </Directory>
+    <ComponentGroupRef Id="Custom" />
+  </Module>
+</Wix>
